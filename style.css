@@ -110,6 +110,7 @@ a:has(.logo):hover {
 }
 .open .mega-menu-header:after {
 	margin-left: 10rem;
+	width: calc(100% - 10rem);
 }
 .mega-menu-header {
 	margin-bottom: 6rem;
@@ -170,6 +171,7 @@ footer .footer-logo img {
 	}
 	.open .mega-menu-header:after {
 		margin-left: 0;
+		width: 100%;
 	}
 	nav.header-alternative img.logo {
 		margin-top: 0;
