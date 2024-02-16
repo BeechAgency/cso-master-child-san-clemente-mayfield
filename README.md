@@ -1,4 +1,4 @@
-San Clemente High School Mayfield, Booragul Theme
+San Clemente High School, Mayfield Theme
 ===
 
 CSO Master child theme for San Clemente High School Mayfield, Booragul. Changes the fonts, colours and school style of the site to be in line with the San Clemente's brand.
