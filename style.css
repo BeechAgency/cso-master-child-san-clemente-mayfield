@@ -7,7 +7,7 @@ Author URI: https://beech.agency/
 Template: cso-master
 
 Description: A theme for San Clemente High School Mayfield
-Version: 0.1
+Version: 1.0
 Tested up to: 6.4
 Requires PHP: 8.1
 License: GNU General Public License v2 or later
@@ -90,10 +90,11 @@ h4,h5 {
 
 
 
-nav img.logo, aside img.logo, .site-search-outer img.logo {
+nav img.logo, aside img.logo, 
+.site-search-outer img.logo {
 	width: auto;
 	max-height: 9.75rem;
-
+	max-width: 9rem;
 	position: absolute;
 }
 a:has(.logo):hover {

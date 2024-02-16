@@ -271,4 +271,4 @@ function console_log($output, $with_script_tags = true) {
 
 //console_log($updater->log, true);
 
-do_action('admin_footer', 'console_log');
+//do_action('admin_footer', 'console_log');
