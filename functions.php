@@ -272,3 +272,44 @@ function console_log($output, $with_script_tags = true) {
 //console_log($updater->log, true);
 
 //do_action('admin_footer', 'console_log');
+
+
+
+function enquirytracker_shortcode($atts) {
+    $atts = shortcode_atts(array(
+        'id' => '',
+        'widget_type' => '1',
+        'widget_id' => '2',
+        'event_type' => 'OE'
+    ), $atts);
+
+    $widget = '<div class="et-widget" widget-type="' . esc_attr($atts['widget_type']) . '" widget-id="' . esc_attr($atts['widget_id']) . '" data-widget-event-type="' . esc_attr($atts['event_type']) . '"></div>';
+    
+    $script = '<script>
+    (function (document) {
+        var loader = function () {
+            fetch("https://app.enquirytracker.net/api/noAuth/widget/getWidgetScriptForSchool/' . esc_js($atts['id']) . '", {
+                headers: {
+                    Accept: "text/html",
+                }
+            })
+            .then(response => response.text())
+            .then(scriptText => {
+                const script = document.createElement("script"), tag = document.getElementsByTagName("script")[0];
+                tag.parentNode.insertBefore(script, tag);
+                script.text = scriptText;
+                script.onerror= function() {
+                    etWidgetDivs = document.getElementsByClassName("et-widget");
+                    var testDivs = Array.prototype.filter.call(etWidgetDivs, function(etWidgetDiv) {
+                        etWidgetDiv.innerHTML = "<p><span style=\"color:red\">We are sorry for the inconvenience, but our forms are currently undergoing maintenance. Please check back again shortly.</span></p>";
+                    });
+                }
+            })
+        };
+        document.addEventListener("DOMContentLoaded", loader);
+    })(document);
+    </script>';
+
+    return $widget . $script;
+}
+add_shortcode('enquirytracker', 'enquirytracker_shortcode');
